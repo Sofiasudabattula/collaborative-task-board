@@ -1,0 +1,8 @@
+### Create a New Task
+POST http://localhost:8080/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Set up project structure",
+  "description": "Initialize Spring Boot backend and link to GitHub repository"
+}
