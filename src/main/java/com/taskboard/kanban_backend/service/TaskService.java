@@ -28,4 +28,20 @@ public class TaskService {
         // Save to PostgreSQL and return the saved entity
         return taskRepository.save(task);
     }
+    public Task updateTask(String id, Task updatedTask){
+        return taskRepository.findById(id)
+                .map(existingTask -> {
+                    existingTask.setTitle(updatedTask.getTitle());
+                    existingTask.setDescription(updatedTask.getDescription());
+                    existingTask.setStatus(updatedTask.getStatus());
+                    return taskRepository.save(existingTask);
+                })
+                .orElseThrow(() -> new RuntimeException("Task not found with id: " + id));
+    }
+    public void deleteTask(String id) {
+        if (!taskRepository.existsById(id)) {
+            throw new RuntimeException("Task not found with id: " + id);
+        }
+        taskRepository.deleteById(id);
+    }
 }

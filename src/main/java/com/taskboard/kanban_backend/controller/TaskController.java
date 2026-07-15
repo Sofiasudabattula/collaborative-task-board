@@ -33,4 +33,17 @@ public class TaskController {
     public Task createTask(@RequestBody Task task) {
         return taskService.createTask(task);
     }
+    //3.update an existing task
+   // Accessible via HTTP PUT at: http://localhost:8080/api/tasks/{id}
+    @PutMapping("/{id}")
+    public Task updateTask(@PathVariable String id, @RequestBody Task task) {
+        return taskService.updateTask(id, task);
+    }
+    //delete a task
+    @DeleteMapping("/{id}")
+    public String deleteTask(@PathVariable String id) {
+        taskService.deleteTask(id);
+        return "Task with ID " + id + " was successfully deleted.";
+    }
+
 }
