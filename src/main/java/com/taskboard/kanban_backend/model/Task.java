@@ -1,15 +1,19 @@
 package com.taskboard.kanban_backend.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
-// @Data is a magical Lombok annotation.
-// It automatically generates getters, setters, equals(), hashCode(),
-// and a toString() method behind the scenes so we don't have to write 100 lines of boilerplate code.
+@Entity
+@Table(name = "tasks")
 @Data
 public class Task {
 
+    @Id
     private String id;
+
     private String title;
     private String description;
-    private String status; // Will hold values like "TO_DO", "IN_PROGRESS", "DONE"
+    private String status;
 }
