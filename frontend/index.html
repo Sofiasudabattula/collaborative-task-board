@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Kanban Board</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Big Top Title Banner -->
+<h1 class="main-title">📝 Kanban Board </h1>
+
+<!-- Board Container Panel -->
+<div class="board-wrapper">
+    <div class="board-actions">
+        <button class="btn-primary" id="openModalBtn">+ New Task</button>
+    </div>
+
+    <div class="board-container">
+        <!-- Column 1: To Do -->
+        <section class="board-column" id="todo-column">
+            <div class="column-header">
+                <span class="header-icon-circle">📋</span>
+                <h2>To Do</h2>
+            </div>
+            <div class="task-list" id="TO_DO"></div>
+        </section>
+
+        <!-- Column 2: In Progress -->
+        <section class="board-column" id="progress-column">
+            <div class="column-header">
+                <span class="header-icon-circle">⚙️</span>
+                <h2>In Progress</h2>
+            </div>
+            <div class="task-list" id="IN_PROGRESS"></div>
+        </section>
+
+        <!-- Column 3: Done -->
+        <section class="board-column" id="done-column">
+            <div class="column-header">
+                <span class="header-icon-circle">✓</span>
+                <h2>Done</h2>
+            </div>
+            <div class="task-list" id="DONE"></div>
+        </section>
+    </div>
+</div>
+
+<!-- Interactive Creation Modal -->
+<div class="modal-overlay" id="taskModal">
+    <div class="modal-window">
+        <h3>Create New Task</h3>
+        <form id="taskForm">
+            <div class="form-group">
+                <label for="taskTitle">Task Title</label>
+                <input type="text" id="taskTitle" placeholder="What needs to be done?" required>
+            </div>
+            <div class="form-group">
+                <label for="taskDescription">Priority Level</label>
+                <select id="taskDescription">
+                    <option value="High">High</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" id="closeModalBtn">Cancel</button>
+                <button type="submit" class="btn-submit">Add Task</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

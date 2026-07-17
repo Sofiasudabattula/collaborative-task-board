@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// @RestController marks this as a web controller returning data.
-// @RequestMapping("/api/tasks") means every route in this file automatically starts with "/api/tasks".
 @RestController
 @RequestMapping("/api/tasks")
+@CrossOrigin(origins = "*") // Allows any frontend application to connect to our API
 public class TaskController {
 
     private final TaskService taskService;
